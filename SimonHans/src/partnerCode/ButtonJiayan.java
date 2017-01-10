@@ -1,4 +1,4 @@
-package simonHans;
+package partnerCode;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 
 import gui.components.Action;
 import gui.components.Component;
+import simonHans.ButtonInterfaceHans;
 
 public class ButtonJiayan extends Component implements ButtonInterfaceHans {
 

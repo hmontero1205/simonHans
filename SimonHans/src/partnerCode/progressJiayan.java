@@ -1,9 +1,10 @@
-package simonHans;
+package partnerCode;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 import gui.components.Component;
+import simonHans.ProgressInterfaceHans;
 
 public class progressJiayan extends Component implements ProgressInterfaceHans {
 

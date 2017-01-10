@@ -1,4 +1,7 @@
-package simonHans;
+package partnerCode;
+
+import simonHans.ButtonInterfaceHans;
+import simonHans.MoveInterfaceHans;
 
 public class moveJiayan implements MoveInterfaceHans {
 
