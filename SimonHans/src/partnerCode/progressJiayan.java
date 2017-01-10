@@ -1,5 +1,6 @@
 package partnerCode;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
@@ -7,7 +8,8 @@ import gui.components.Component;
 import simonHans.ProgressInterfaceHans;
 
 public class progressJiayan extends Component implements ProgressInterfaceHans {
-
+	private int roundNumber;
+	private int sequenceNum;
 	public progressJiayan() {
 		super(200,600,50,100);
 		// TODO Auto-generated constructor stub
@@ -15,15 +17,10 @@ public class progressJiayan extends Component implements ProgressInterfaceHans {
 
 	
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void updateInfo(int roundNum, int i) {
-		// TODO Auto-generated method stub
-
+		roundNumber += roundNum;
+		sequenceNum += i;
+		update();
 	}
 
 	@Override
@@ -76,9 +73,10 @@ public class progressJiayan extends Component implements ProgressInterfaceHans {
 
 
 	@Override
-	public void update(Graphics2D arg0) {
+	public void update(Graphics2D g) {
 		// TODO Auto-generated method stub
-		
+		g.setColor(new Color(200,220,255));
+	//	g.drawRectangle();
 	}
 
 }
