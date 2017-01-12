@@ -82,16 +82,16 @@ public class progressJiayan extends Component implements ProgressInterfaceHans {
 			g.setColor(Color.blue);
 			g.fillRect(0, 0, 50, 100);
 			g.setColor(Color.black);
-			//draw strings
+			g.drawString("Game Over",5,50);
 
 		}else{
 			g.setColor(Color.red);
 			g.fillRect(0, 0, 50, 100);
 			g.setColor(Color.black);
-			g.drawRect(0, 0, 45, 95);
-			//draw strings
+			g.drawRect(0, 0, 50, 90);
 		}
-
+		g.drawString("Round: "+roundNumber,5,70);
+		g.drawString("Current Sequence Length: "+sequenceNum,5,75);
 	}
 
 }
