@@ -1,6 +1,7 @@
 package partnerCode;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
@@ -33,6 +34,7 @@ public class progressJiayan extends Component implements ProgressInterfaceHans {
 	@Override
 	public void update(Graphics2D g) {
 		g = clear();
+		g.setFont(new Font("Comic Sans MS",Font.PLAIN,14));
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		if(gameOver){
 			g.setColor(Color.red);
