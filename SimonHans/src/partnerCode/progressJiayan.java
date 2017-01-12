@@ -10,8 +10,9 @@ import simonHans.ProgressInterfaceHans;
 public class progressJiayan extends Component implements ProgressInterfaceHans {
 	private int roundNumber;
 	private int sequenceNum;
+	private boolean gameOver;
 	public progressJiayan() {
-		super(200,600,50,100);
+		super(60,60,50,100);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -26,7 +27,8 @@ public class progressJiayan extends Component implements ProgressInterfaceHans {
 	@Override
 	public void setGameOver() {
 		// TODO Auto-generated method stub
-
+		gameOver = true;
+		update();
 	}
 
 
@@ -74,9 +76,22 @@ public class progressJiayan extends Component implements ProgressInterfaceHans {
 
 	@Override
 	public void update(Graphics2D g) {
-		// TODO Auto-generated method stub
-		g.setColor(new Color(200,220,255));
-	//	g.drawRectangle();
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		FontMetrics fm = g.getFontMetrics();
+		if(gameOver){
+			g.setColor(Color.blue);
+			g.fillRect(0, 0, 50, 100);
+			g.setColor(Color.black);
+			//draw strings
+
+		}else{
+			g.setColor(Color.red);
+			g.fillRect(0, 0, 50, 100);
+			g.setColor(Color.black);
+			g.drawRect(0, 0, 45, 95);
+			//draw strings
+		}
+
 	}
 
 }
