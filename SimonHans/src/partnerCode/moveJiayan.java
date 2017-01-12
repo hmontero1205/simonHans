@@ -4,15 +4,14 @@ import simonHans.ButtonInterfaceHans;
 import simonHans.MoveInterfaceHans;
 
 public class moveJiayan implements MoveInterfaceHans {
-
-	public moveJiayan() {
-		
+	private ButtonInterface b;
+	public moveJiayan(ButtonInterface b) {
+		this.b = b;
 	}
 
 	@Override
 	public ButtonInterfaceHans getButton() {
-		
-		return null;
+		return b;
 	}
 
 }
