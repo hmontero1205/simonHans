@@ -9,7 +9,10 @@ import gui.components.Component;
 import simonHans.ButtonInterfaceHans;
 
 public class ButtonJiayan extends Component implements ButtonInterfaceHans {
-
+	private boolean highlight;
+	private Color color;
+	private Action action;
+	
 	public ButtonJiayan(int x, int y) {
 		// TODO Auto-generated constructor stub
 		super(x,y,60,60);
@@ -30,26 +33,28 @@ public class ButtonJiayan extends Component implements ButtonInterfaceHans {
 
 	@Override
 	public void setAction(Action a) {
-		// TODO Auto-generated method stub
+		this.action = a;
 
 	}
 
 	@Override
 	public void turnOn() {
-		// TODO Auto-generated method stub
+		highlight = true;
+		update();
 
 	}
 
 	@Override
 	public void turnOff() {
-		// TODO Auto-generated method stub
+		highlight =false;
+		update();
 
 	}
 
 	@Override
 	public void setColor(Color c) {
 		// TODO Auto-generated method stub
-
+		this.color = c;
 	}
 
 	@Override
@@ -65,14 +70,22 @@ public class ButtonJiayan extends Component implements ButtonInterfaceHans {
 	}
 
 	@Override
-	public void update(Graphics2D arg0) {
-		// TODO Auto-generated method stub
+	public void update(Graphics2D g) {
+		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		if(color != null) 
+		{
+			g.setColor(color);
+		}
+		else g.setColor(Color.gray);
+		g.fillOval(0, 0, 60, 60);
+		g.setColor(Color.black);
+		g.drawOval(0, 0, 59, 59);
 		
 	}
 
 	@Override
 	public void act() {
-		// TODO Auto-generated method stub
+		this.action.act;
 		
 	}
 
