@@ -14,7 +14,6 @@ public class progressJiayan extends Component implements ProgressInterfaceHans {
 	private boolean gameOver;
 	public progressJiayan() {
 		super(200,60,200,100);
-		// TODO Auto-generated constructor stub
 	}
 
 	
@@ -40,16 +39,19 @@ public class progressJiayan extends Component implements ProgressInterfaceHans {
 			g.fillRect(0, 0, 200, 100);
 			g.setColor(Color.black);
 			g.drawRect(0, 0, 199, 99);
-			g.drawString("Game Over",5,35);
+			g.drawString("Game Over!!",5,35);
+			g.drawString("Round: "+roundNumber,5,55);
+			g.drawString("Current Sequence Length: "+sequenceNum,5,75);
 
 		}else{
 			g.setColor(Color.pink);
 			g.fillRect(0, 0, 200, 100);
 			g.setColor(Color.black);
 			g.drawRect(0, 0, 199, 99);
+			g.drawString("Round: "+roundNumber,5,35);
+			g.drawString("Current Sequence Length: "+sequenceNum,5,55);
 		}
-		g.drawString("Round: "+roundNumber,5,55);
-		g.drawString("Current Sequence Length: "+sequenceNum,5,75);
+		
 	}
 
 }

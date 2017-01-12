@@ -115,7 +115,6 @@ public class SimonScreenHans extends ClickableScreen implements Runnable {
 		progressBox.updateInfo(roundNum,moveList.size());
 		changeText("hold up B my turn");
 		moveBox.setText("");
-		System.out.println(moveList.size());
 		blinkSequence();
 		changeText("your turn dont mess up ok? xD");
 		playerIndex = 0;

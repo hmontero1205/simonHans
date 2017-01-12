@@ -13,7 +13,6 @@ public class SimonGameHans extends GUIApplication {
 	public void initScreen() {
 		ss =  new SimonScreenHans(getWidth(),getHeight());
 		setScreen(ss);
-
 	}
 
 	public static void main(String[] args) {
