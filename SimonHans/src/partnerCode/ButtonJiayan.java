@@ -19,9 +19,8 @@ public class ButtonJiayan extends Component implements ButtonInterfaceHans {
 	}
 
 	@Override
-	public boolean isHovered(int arg0, int arg1) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isHovered(int x, int y) {
+		return ((x>this.getX() && x<(this.getX()+this.getWidth())) && (y>this.getY() && y<(this.getY()+this.getHeight())));
 	}
 
 
