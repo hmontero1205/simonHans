@@ -8,6 +8,9 @@ import gui.components.Action;
 import gui.components.TextArea;
 import gui.components.TextLabel;
 import gui.components.Visible;
+import partnerCode.ButtonJiayan;
+import partnerCode.moveJiayan;
+import partnerCode.progressJiayan;
 
 public class SimonScreenHans extends ClickableScreen implements Runnable {
 
@@ -19,10 +22,12 @@ public class SimonScreenHans extends ClickableScreen implements Runnable {
 	private boolean playerMove;
 	private ButtonInterfaceHans[] butArr;
 	private int playerIndex;
+	private int lastBut;
 	
 	public SimonScreenHans(int width, int height) {
 		super(width, height);
 		roundNum = 0;
+		lastBut = -1;
 		Thread sGame = new Thread(this);
 		playerMove = false;
 		sGame.start();
@@ -31,7 +36,7 @@ public class SimonScreenHans extends ClickableScreen implements Runnable {
 	@Override
 	public void initAllObjects(ArrayList<Visible> viewObjects) {
 		Color[] colArr = {Color.blue,Color.yellow,Color.cyan,Color.red};
-		butArr = new ButtonInterfaceHans[4];
+		butArr = new ButtonInterfaceHans[colArr.length];
 		moveBox = new TextLabel(300,400,400,40,"Get ready to play my son");
 		progressBox = getProgressBox();
 		for(int i=0;i<butArr.length;i++){
@@ -84,8 +89,13 @@ public class SimonScreenHans extends ClickableScreen implements Runnable {
 		viewObjects.add(progressBox);
 	}
 
-	public MoveInterfaceHans getAMove(ButtonInterfaceHans b){
-		return MoveJiayan(b);
+	public MoveInterfaceHans getAMove(){
+		int random = (int)(Math.random()*butArr.length);
+		while(random == lastBut){
+			random = (int)(Math.random()*butArr.length);
+		}
+		lastBut = random;
+		return new moveJiayan(butArr[random]);
 	}
 
 	public ButtonInterfaceHans getAButton(int i, int j) {
@@ -93,7 +103,7 @@ public class SimonScreenHans extends ClickableScreen implements Runnable {
 	}
 
 	public ProgressInterfaceHans getProgressBox() {
-		return new ProgressJiayan;
+		return new progressJiayan();
 	}
 	
 	
@@ -123,7 +133,7 @@ public class SimonScreenHans extends ClickableScreen implements Runnable {
 			}
 			m.getButton().turnOn();
 			try {
-				Thread.sleep(1000);
+				Thread.sleep((int)(1000*(1.0/roundNum)));
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

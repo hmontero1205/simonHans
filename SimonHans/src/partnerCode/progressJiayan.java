@@ -2,6 +2,7 @@ package partnerCode;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
 import gui.components.Component;
@@ -12,15 +13,15 @@ public class progressJiayan extends Component implements ProgressInterfaceHans {
 	private int sequenceNum;
 	private boolean gameOver;
 	public progressJiayan() {
-		super(60,60,50,100);
+		super(200,60,200,100);
 		// TODO Auto-generated constructor stub
 	}
 
 	
 	@Override
 	public void updateInfo(int roundNum, int i) {
-		roundNumber += roundNum;
-		sequenceNum += i;
+		roundNumber = roundNum;
+		sequenceNum = i;
 		update();
 	}
 
@@ -30,67 +31,24 @@ public class progressJiayan extends Component implements ProgressInterfaceHans {
 		gameOver = true;
 		update();
 	}
-
-
-	@Override
-	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	@Override
-	public BufferedImage getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	@Override
-	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	@Override
-	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	@Override
-	public boolean isAnimated() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
 	@Override
 	public void update(Graphics2D g) {
+		g = clear();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		FontMetrics fm = g.getFontMetrics();
 		if(gameOver){
-			g.setColor(Color.blue);
-			g.fillRect(0, 0, 50, 100);
+			g.setColor(Color.red);
+			g.fillRect(0, 0, 200, 100);
 			g.setColor(Color.black);
-			g.drawString("Game Over",5,50);
+			g.drawRect(0, 0, 199, 99);
+			g.drawString("Game Over",5,35);
 
 		}else{
-			g.setColor(Color.red);
-			g.fillRect(0, 0, 50, 100);
+			g.setColor(Color.pink);
+			g.fillRect(0, 0, 200, 100);
 			g.setColor(Color.black);
-			g.drawRect(0, 0, 50, 90);
+			g.drawRect(0, 0, 199, 99);
 		}
-		g.drawString("Round: "+roundNumber,5,70);
+		g.drawString("Round: "+roundNumber,5,55);
 		g.drawString("Current Sequence Length: "+sequenceNum,5,75);
 	}
 

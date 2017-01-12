@@ -4,8 +4,8 @@ import simonHans.ButtonInterfaceHans;
 import simonHans.MoveInterfaceHans;
 
 public class moveJiayan implements MoveInterfaceHans {
-	private ButtonInterface b;
-	public moveJiayan(ButtonInterface b) {
+	private ButtonInterfaceHans b;
+	public moveJiayan(ButtonInterfaceHans b) {
 		this.b = b;
 	}
 

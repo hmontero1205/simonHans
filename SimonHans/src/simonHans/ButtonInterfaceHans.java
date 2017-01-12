@@ -15,6 +15,4 @@ public interface ButtonInterfaceHans extends Clickable {
 	public void setColor(Color c);
 
 	public Color getColor();
-
-	public void setCoords(int i, int j);
 }

@@ -2,6 +2,7 @@ package partnerCode;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
 import gui.components.Action;
@@ -22,14 +23,7 @@ public class ButtonJiayan extends Component implements ButtonInterfaceHans {
 	public boolean isHovered(int x, int y) {
 		return ((x>this.getX() && x<(this.getX()+this.getWidth())) && (y>this.getY() && y<(this.getY()+this.getHeight())));
 	}
-
-
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 	@Override
 	public void setAction(Action a) {
 		this.action = a;
@@ -59,21 +53,15 @@ public class ButtonJiayan extends Component implements ButtonInterfaceHans {
 	@Override
 	public Color getColor() {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setCoords(int i, int j) {
-		// TODO Auto-generated method stub
-
+		return this.color;
 	}
 
 	@Override
 	public void update(Graphics2D g) {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		if(color != null) 
+		if(highlight) 
 		{
-			g.setColor(color);
+			g.setColor(this.color);
 		}
 		else g.setColor(Color.gray);
 		g.fillOval(0, 0, 60, 60);
@@ -84,7 +72,7 @@ public class ButtonJiayan extends Component implements ButtonInterfaceHans {
 
 	@Override
 	public void act() {
-		this.action.act;
+		this.action.act();
 		
 	}
 
