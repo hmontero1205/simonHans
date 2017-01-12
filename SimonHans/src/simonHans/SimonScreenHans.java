@@ -84,16 +84,16 @@ public class SimonScreenHans extends ClickableScreen implements Runnable {
 		viewObjects.add(progressBox);
 	}
 
-	public MoveInterfaceHans getAMove(){
-		return null;
+	public MoveInterfaceHans getAMove(ButtonInterfaceHans b){
+		return MoveJiayan(b);
 	}
 
 	public ButtonInterfaceHans getAButton(int i, int j) {
-		return null;
+		return new ButtonJiayan(i,j);
 	}
 
 	public ProgressInterfaceHans getProgressBox() {
-		return null;
+		return new ProgressJiayan;
 	}
 	
 	
