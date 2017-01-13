@@ -27,7 +27,6 @@ public class SimonScreenHans extends ClickableScreen implements Runnable {
 	public SimonScreenHans(int width, int height) {
 		super(width, height);
 		roundNum = 0;
-		lastBut = -1;
 		Thread sGame = new Thread(this);
 		playerMove = false;
 		sGame.start();
@@ -63,19 +62,17 @@ public class SimonScreenHans extends ClickableScreen implements Runnable {
 						});
 					
 						blinkThread.start();
-						if(playerIndex<moveList.size()-1){
-							if(b.getColor() == moveList.get(playerIndex).getButton().getColor()){
-								playerIndex++;
-							}
-							else{
-								progressBox.setGameOver();
-								playerMove = false;
-								System.out.println("game over");
-							}
+
+						if(playerMove && moveList.get(playerIndex).getButton() == b){
+							playerIndex++;
+						}else if(playerMove){
+							progressBox.setGameOver();
+							playerMove = false;
+							return;
 						}
-						else{
-							Thread sGame = new Thread(SimonScreenHans.this);
-							sGame.start();
+						if(playerIndex == moveList.size()){
+							Thread nextRound = new Thread(SimonScreenHans.this);
+							nextRound.start();
 						}
 					}
 				}
@@ -83,6 +80,7 @@ public class SimonScreenHans extends ClickableScreen implements Runnable {
 			viewObjects.add(b);
 		}
 		moveList = new ArrayList<MoveInterfaceHans>();
+		lastBut = -1;
 		moveList.add(getAMove());
 		moveList.add(getAMove());
 		viewObjects.add(moveBox);
